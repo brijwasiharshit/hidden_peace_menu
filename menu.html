@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hidden Cave | Bhimtal</title>
+ <style>
+    /* Red-Green Color Theme */
+:root {
+    --deep-red: #A91B0D;
+    --bright-red: #C0392B;
+    --light-red: #E74C3C;
+    --dark-green: #1E8449;
+    --medium-green: #2E8B57;
+    --light-green: #27AE60;
+    --cream-white: #FFF8F0;
+    --gold: #FFD700;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cream-white);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* WiFi Info Banner */
+.wifi-banner {
+    background-color: var(--dark-green);
+    color: white;
+    padding: 8px 0;            /* Reduced padding */
+    font-size: 0.9rem;         /* Smaller font */
+    text-align: center;
+    position: relative;
+}
+
+.wifi-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.wifi-info {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255,255,255,0.2);
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.wifi-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--gold);
+}
+
+.wifi-text {
+    font-weight: 600;
+}
+
+.wifi-password {
+    font-family: 'Courier New', monospace;
+    background-color: var(--deep-red);
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('WhatsApp Image 2025-05-18 at 14.35.22.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;       /* Reduced from 100px */
+    position: relative;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;        /* Reduced from 3.5rem */
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+    font-size: 1rem;          /* Reduced from 1.5rem */
+    margin-top: 8px;          /* Reduced from 15px */
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Booking Bar */
+.booking-bar {
+    background-color: var(--medium-green);
+    padding: 8px 0;           /* Reduced from 15px */
+    text-align: center;
+}
+
+.booking-btn {
+    background-color: var(--bright-red);
+    color: white;
+    padding: 8px 20px;        /* Reduced from 12px 30px */
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 5px;            /* Reduced margin */
+    transition: all 0.3s ease;
+    border: 2px solid var(--bright-red);
+    font-size: 0.9rem;        /* Smaller font */
+}
+
+.booking-btn:hover {
+    background-color: transparent;
+    color: var(--bright-red);
+}
+
+/* Resort Gallery */
+.gallery {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: 905px;
+    height: 1280px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    border: 3px solid var(--medium-green);
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border-color: var(--bright-red);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 20px;
+}
+
+/* About Section */
+.about {
+    background-color: white;
+    padding: 40px 20px;       /* Reduced from 80px */
+    text-align: center;
+    border-top: 3px solid var(--bright-red);
+    border-bottom: 3px solid var(--bright-red);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 1.8rem;        /* Reduced from 2.5rem */
+    color: var(--dark-green);
+    margin-bottom: 20px;      /* Reduced from 30px */
+    position: relative;
+    display: inline-block;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--bright-red);
+}
+
+/* Herbal Brand Section */
+.herbal-brand {
+    background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
+    padding: 30px 20px;       /* Reduced from 60px */
+    text-align: center;
+    color: white;
+}
+
+.herbal-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.herbal-logo {
+    font-size: 1.8rem;        /* Reduced from 2.5rem */
+    margin-bottom: 12px;      /* Reduced from 20px */
+    color: var(--gold);
+}
+
+.herbal-btn {
+    display: inline-block;
+    background-color: var(--bright-red);
+    color: white;
+    padding: 8px 20px;        /* Reduced from 12px 30px */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--bright-red);
+    font-size: 0.9rem;        /* Smaller font */
+}
+
+.herbal-btn:hover {
+    background-color: transparent;
+    color: var(--bright-red);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--deep-red), var(--bright-red));
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--gold);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .gallery-item {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 905/1280;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;         /* Slightly smaller for tablet */
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: auto;
+        aspect-ratio: 905/1280;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .wifi-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* ====== Mobile (phone) - Make top sections much smaller ====== */
+@media (max-width: 480px) {
+    /* WiFi Banner */
+    .wifi-banner {
+        padding: 4px 0;           /* Half padding */
+        font-size: 0.75rem;       /* Smaller font */
+    }
+    .wifi-info {
+        padding: 6px 10px;        /* More compact */
+        border-radius: 30px;
+        font-weight: 500;
+    }
+    .wifi-icon {
+        font-size: 1.2rem;
+        margin-right: 6px;
+    }
+    .wifi-password {
+        padding: 3px 8px;
+        margin-left: 5px;
+        font-size: 0.8rem;
+    }
+
+    /* Header */
+    header {
+        padding: 20px 10px;       /* Much smaller padding */
+    }
+    h1 {
+        font-size: 1.4rem;        /* Smaller heading */
+        line-height: 1.2;
+    }
+    .subtitle {
+        font-size: 0.7rem;        /* Smaller subtitle */
+        margin-top: 4px;
+    }
+
+    /* Booking Bar */
+    .booking-bar {
+        padding: 4px 0;
+    }
+    .booking-btn {
+        padding: 6px 15px;
+        font-size: 0.75rem;
+        margin: 3px 3px;
+        border-radius: 30px;
+        display: block;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+ </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- WiFi Information Banner -->
+    <div class="wifi-banner">
+        <div class="wifi-container">
+            <div class="wifi-info">
+                <i class="fas fa-wifi wifi-icon"></i>
+                <span class="wifi-text">WiFi Network:</span>
+                <span>TheHiddenCafe</span>
+            </div>
+            <div class="wifi-info">
+                <i class="fas fa-key wifi-icon"></i>
+                <span class="wifi-text">Password:</span>
+                <span class="wifi-password">escape2nature</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with Hero Image -->
+    <header>
+        <div class="header-content">
+            <h1>The Hidden Cave</h1>
+            <p class="subtitle">A cozy escape in the serene hills of Bhimtal</p>
+        </div>
+    </header>
+
+    <!-- Booking Bar -->
+    <div class="booking-bar">
+        <a href="tel:+91 8937910455" class="booking-btn">
+            <i class="fas fa-phone"></i> Call to Order
+        </a>
+        <a href="https://wa.me/+918937910455" class="booking-btn">
+            <i class="fab fa-whatsapp"></i> WhatsApp Enquiry
+        </a>
+    </div>
+
+    <!-- Resort Gallery -->
+    <section class="gallery">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="gallery-grid">
+            <!-- Images -->
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/djrjt69jl/image/upload/v1749024278/hidden_cafe_1_txvprw.jpg" alt="Resort View" class="gallery-img">
+                <div class="gallery-caption"><h3>Menu</h3></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/djrjt69jl/image/upload/v1749024388/hidden_cafe_2_ljnilt.jpg" alt="Resort Room" class="gallery-img">
+                <div class="gallery-caption"><h3>Menu</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Resort -->
+    <section class="about">
+        <div class="about-content">
+            <h2 class="section-title">About The Hidden Cave</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">
+              The Hidden Cave: Your cozy retreat wrapped in nature's calm.
+            </p>
+        </div>
+    </section>
+
+    <!-- Herbal Products Brand Section -->
+    <section class="herbal-brand">
+        <div class="herbal-container">
+            <div class="herbal-logo">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h2>Explore Our Herbal Products</h2>
+            <p>Discover our range of natural, organic herbal products crafted with care from the finest ingredients nature has to offer.</p>
+            <a href="https://yourherbalbrandwebsite.com" class="herbal-btn" target="_blank">
+                Visit Our Herbal Store
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Dhungsil, Bhimtal, Nainital, Uttarakhand</p>
+            <p><i class="fas fa-phone"></i> +91 89379 10455</p>
+        </div>
+
+
+        <p style="margin-top: 30px; font-size: 0.9rem;">© 2025 ALIADO. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
